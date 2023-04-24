@@ -15,6 +15,9 @@ export default {
       colors:{
         "white-text":"#D0D6F9",
         "black-text":"#0B0D17",
+      },
+      fontSize:{
+        "10xl": "150px"
       }
     },
   },

@@ -35,8 +35,8 @@ const Navbar = () => {
                     </div>
 
                     <div className="md:flex md:items-center ">
-                        <nav aria-label="Site Nav" className="hidden md:block mx-auto w-full md:px-12">
-                            <ul className="flex items-center gap-6   text-white text-base tracking-widest font-normal">
+                        <nav aria-label="Site Nav" className="hidden md:block bg-mywhite mx-auto w-full md:px-12 lg:px-40 backdrop-blur-2xl">
+                            <ul className="flex items-center gap-6 lg:gap-12   text-white text-base tracking-widest font-normal">
                                 {
                                     sections.map((section) => (
                                         <li key={section.title} className="border-b-2 border-transparent hover:border-white hover:border-opacity-60  py-4 transition-colors duration-300 transform   ">
@@ -44,7 +44,7 @@ const Navbar = () => {
                                                 className=" uppercase transition "
                                                 href={`#${section.title}`}
                                             >
-                                                <span className="md:hidden xl:inline font-semibold  ">{section.index}</span> {section.title}
+                                                <span className="md:hidden lg:inline font-semibold  ">{section.index}</span> {section.title}
                                             </a>
                                         </li>
                                     ))
@@ -69,3 +69,5 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
+
