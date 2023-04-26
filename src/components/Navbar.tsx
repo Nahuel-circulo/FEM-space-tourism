@@ -25,7 +25,7 @@ const Navbar = () => {
     const [isOpen, setisOpen] = useState(false);
 
     return (
-        <nav className="absolute w-full">
+        <nav className="fixed w-full">
             <div className="mx-auto  max-w-screen-xxl px-8 sm:px-6 lg:px-8 py-4 font-barlow ">
                 <div className="flex  h-16 items-center justify-between ">
                     <div className="flex-1 md:flex md:items-center md:gap-12">

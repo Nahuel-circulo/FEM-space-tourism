@@ -8,13 +8,19 @@ export default {
         bellefair: "Bellefair",
       },
       backgroundImage:{
-        "home-mobile":"url('./src/assets/home/background-home-mobile.jpg')",
-        "home-tablet":"url('./src/assets/home/background-home-tablet.jpg')",
-        "home-desktop":"url('./src/assets/home/background-home-desktop.jpg')",
+        "home-mobile":"url('/images/home/background-home-mobile.jpg')",
+        "home-tablet":"url('/images/home/background-home-tablet.jpg')",
+        "home-desktop":"url('/images/home/background-home-desktop.jpg')",
+        "destination-mobile":"url('/images/destination/background-destination-mobile.jpg')",
+        "destination-tablet":"url('/images/destination/background-destination-tablet.jpg')",
+        "destination-desktop":"url('/images/destination/background-destination-desktop.jpg')",
       },
       colors:{
         "white-text":"#D0D6F9",
         "black-text":"#0B0D17",
+      },
+      backgroundColor:{
+        "mywhite":"rgba(255, 255, 255, 0.04)",
       },
       fontSize:{
         "10xl": "150px"
