@@ -57,10 +57,10 @@ const Destinations = () => {
 
     return (
         <>
-            <div id="destination" className=" bg-destination-mobile md:bg-destination-tablet lg:bg-destination-desktop bg-cover  min-h-screen h-auto font-normal font-barlow px-8 py-6">
+            <div id="destination" className=" bg-destination-mobile md:bg-destination-tablet lg:bg-destination-desktop bg-cover  min-h-screen h-auto font-normal font-barlow px-8 py-6 md:px-16">
                 <div className="mx-auto grid place-items-center lg:grid-cols-2 lg:grid-rows-3  w-full max-w-md md:max-w-2xl lg:max-w-6xl pt-12">
-                    <h2 className="py-4 text-white uppercase text-xl"><span className="text-gray-500 pr-4 font-bold">01</span>Pick your destination</h2>
-                    <img className="w-48 mb-8 " src={currentDestination?.images.webp} alt="moon" />
+                    <h2 className="py-4 text-white uppercase md:justify-self-start md:py-8 text-xl"><span className="text-gray-500 pr-4 font-bold">01</span>Pick your destination</h2>
+                    <img className="w-48 mb-8 md:w-72" src={currentDestination?.images.webp} alt="moon" />
                     <div className=" self-end mx-auto mb-8 max-w-md lg:max-w-2xl  text-center  lg:self-center  lg:row-span-2 lg:row-start-2  font-barlow text-white-text px-4 w-full text-base md:text-lg">
                         {
 
@@ -75,10 +75,10 @@ const Destinations = () => {
                                 }
 
                             </div>}
-                        <h1 className="font-bellefair my-4 text-white text-6xl md:text-9xl lg:text-10xl uppercase">{currentDestination?.name}</h1>
+                        <h1 className="font-bellefair my-4 text-white text-6xl md:text-8xl lg:text-10xl uppercase">{currentDestination?.name}</h1>
                         <p className="leading-7 lg:leading-9 md:text-base lg:text-lg lg:text-justify md:max-w-sm lg:max-w-md mx-auto py-2">{currentDestination?.description}</p>
                     </div>
-                    <div className=" w-full p-8 uppercase font-bellefair  grid gap-8 place-items-center border-t-2 border-solid border-gray-500">
+                    <div className=" w-full p-8 uppercase font-bellefair  grid gap-8 md:grid-cols-2 place-items-center border-t-2 border-solid border-gray-500">
                         <div className="w-full text-center">
                             <p className="text-white-text text-base ">AVG. DISTANCE</p>
                             <h3 className="text-white text-3xl">{currentDestination?.distance}</h3>
