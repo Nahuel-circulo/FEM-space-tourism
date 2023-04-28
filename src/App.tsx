@@ -9,8 +9,10 @@ function App() {
   return (
     <>
       <Navbar />
-      <Home/>
-      <Destinations/>
+      <main >
+        <Home />
+        <Destinations />
+      </main>
 
     </>
   )

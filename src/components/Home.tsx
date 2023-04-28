@@ -3,7 +3,7 @@
 const Home = () => {
     return (
         <>
-            <div className="bg-home-mobile md:bg-home-tablet lg:bg-home-desktop bg-cover  font-normal">
+            <div id="home" className="bg-home-mobile md:bg-home-tablet lg:bg-home-desktop bg-cover  font-normal">
                 <div className="mx-auto grid place-items-center lg:grid-cols-2 lg:grid-rows-3 min-h-screen w-full max-w-md md:max-w-2xl lg:max-w-6xl">
                     <div className="self-end mx-auto max-w-md lg:max-w-2xl  text-center  lg:self-center  lg:row-span-2 lg:row-start-2  font-barlow text-white-text px-4 w-full text-base md:text-lg">
                         <h3 className=" lg:text-3xl text-center ">SO, YOU WANT TO TRAVEL TO</h3>

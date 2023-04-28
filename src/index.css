@@ -7,3 +7,7 @@
 
 /* font-family: 'Bellefair', serif; */
 /* font-family: 'Barlow', sans-serif; */
+
+html{
+    scroll-behavior: smooth !important;
+}
