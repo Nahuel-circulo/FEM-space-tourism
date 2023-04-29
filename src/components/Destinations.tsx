@@ -50,15 +50,15 @@ const Destinations = () => {
     <>
       <div
         id="destination"
-        className=" h-auto min-h-screen bg-destination-mobile bg-cover  px-8 py-6 font-barlow font-normal md:bg-destination-tablet md:px-16 lg:bg-destination-desktop"
+        className=" h-auto min-h-screen bg-destination-mobile bg-cover  px-8 py-6 font-barlow font-normal md:bg-destination-tablet md:px-16 lg:bg-destination-desktop grid"
       >
-        <div className="mx-auto grid w-full max-w-md place-items-center  pt-12 md:max-w-2xl lg:max-w-6xl lg:grid-cols-2 lg:grid-rows-2">
-          <h2 className=" py-4 text-xl uppercase text-white md:justify-self-start md:py-8 lg:col-start-1">
-            <span className="pr-4 font-bold text-gray-500">01</span>Pick your
-            destination
+        <div className="mx-auto grid w-full max-w-md place-items-center lg:gap-10  pt-12 md:max-w-2xl lg:max-w-6xl lg:grid-cols-2 lg:auto-rows-auto lg:place-items-center ">
+          <h2 className=" py-4 text-xl lg:text-3xl uppercase text-white md:justify-self-start md:py-8 lg:col-start-1 lg:self-end">
+            <span className="pr-4 font-bold text-gray-500 ">01</span>
+            Pick yourdestination
           </h2>
           <img
-            className="mb-8 w-48 md:w-72 lg:col-start-1 lg:row-span-2 lg:row-start-2"
+            className="mb-8 w-48 md:w-72 lg:w-full  lg:max-w-md lg:col-start-1 lg:row-span-2 lg:row-start-2"
             src={currentDestination?.images.webp}
             alt="moon"
           />
@@ -80,7 +80,7 @@ const Destinations = () => {
                 ))}
               </div>
             }
-            <h1 className="my-4 font-bellefair text-6xl uppercase text-white md:text-8xl lg:text-10xl">
+            <h1 className="my-4 font-bellefair text-6xl uppercase text-white md:text-8xl lg:text-9xl">
               {currentDestination?.name}
             </h1>
             <p className="mx-auto py-2 leading-7 md:max-w-sm md:text-base lg:max-w-md lg:text-justify lg:text-lg lg:leading-9">
