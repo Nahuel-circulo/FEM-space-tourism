@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import logoIcon from '../assets/shared/logo.svg';
 import hamburgerIcon from '../assets/shared/icon-hamburger.svg';
+import { SpaceContext } from "../context/SpaceContext";
 //import closeIcon from '../assets/shared/icon-close.svg';
 
 const Navbar = () => {
@@ -24,6 +25,11 @@ const Navbar = () => {
     ]
     const [isOpen, setisOpen] = useState(false);
 
+    
+
+     const {spaceState,setActiveSection} = useContext(SpaceContext);
+
+    console.log(spaceState.activeSection);
     return (
         <nav className="fixed w-full">
             <div className="mx-auto  max-w-screen-xxl px-8 sm:px-6 lg:px-8 py-4 font-barlow ">
@@ -39,10 +45,11 @@ const Navbar = () => {
                             <ul className="flex items-center gap-6 lg:gap-12   text-white text-base tracking-widest font-normal">
                                 {
                                     sections.map((section) => (
-                                        <li key={section.title} className="border-b-2 border-transparent hover:border-white hover:border-opacity-60  py-4 transition-colors duration-300 transform   ">
+                                        <li key={section.title} className={`${spaceState.activeSection === section.title ? 'border-white': 'border-transparent'} `+"border-b-2  hover:border-white hover:border-opacity-60  py-4 transition-colors duration-300 transform   "}>
                                             <a
                                                 className=" uppercase transition "
                                                 href={`#${section.title}`}
+                                                onClick={()=>setActiveSection(section.title)}
                                             >
                                                 <span className="md:hidden lg:inline font-semibold  ">{section.index}</span> {section.title}
                                             </a>
