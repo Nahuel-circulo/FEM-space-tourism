@@ -45,9 +45,9 @@ const Navbar = () => {
                             <ul className="flex items-center gap-6 lg:gap-12   text-white text-base tracking-widest font-normal">
                                 {
                                     sections.map((section) => (
-                                        <li key={section.title} className={`${spaceState.activeSection === section.title ? 'border-white': 'border-transparent'} `+"border-b-2  hover:border-white hover:border-opacity-60  py-4 transition-colors duration-300 transform   "}>
+                                        <li key={section.title} className={`${spaceState.activeSection === section.title ? 'border-white': 'border-transparent hover:border-white hover:border-opacity-60'} `+"border-b-2    py-4 transition-colors duration-300 transform   "}>
                                             <a
-                                                className=" uppercase transition "
+                                                className=" uppercase transition py-4  "
                                                 href={`#${section.title}`}
                                                 onClick={()=>setActiveSection(section.title)}
                                             >

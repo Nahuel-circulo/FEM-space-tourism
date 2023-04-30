@@ -1,0 +1,21 @@
+.swiper-pagination {
+
+    top: calc(50% - 10px)!important;
+    
+    height: fit-content;
+    
+}
+
+.swiper-pagination-bullet {
+    background-color: white !important;
+    height: 10px !important;
+    width: 10px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: white !important;
+}
+
+.grid-height{
+    height: calc(100vh - 124px);
+}

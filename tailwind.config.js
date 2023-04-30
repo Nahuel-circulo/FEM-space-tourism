@@ -27,6 +27,11 @@ export default {
       },
       fontSize:{
         "10xl": "150px"
+      },
+      height:{
+        "grid-mobile":"calc(100vh - 124px)",
+        "grid-tablet":"calc(100vh - 124px)",
+        "grid-desktop":"calc(100vh - 124px)",
       }
     },
   },
