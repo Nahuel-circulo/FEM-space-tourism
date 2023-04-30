@@ -4,10 +4,48 @@ import { Pagination } from "swiper";
 import 'swiper/css';
 import "swiper/css/pagination";
 import '../assets/styles/crew.css';
+import { useEffect, useState } from 'react';
 
 
+//can you make crew interface ?
+interface Crew {
+    name: string;
+    role: string;
+    bio: string;
+    images: Iimages;
+}
+
+interface Iimages {
+    png: string;
+    webp: string;
+}
 
 const Crew = () => {
+
+
+    const [crews, setCrews] = useState([]);
+
+
+    const getData = () => {
+        fetch("/data/data.json", {
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (myJson) {
+                setCrews(myJson.crew);
+            });
+    };
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+
 
     return (
         <>
@@ -18,7 +56,7 @@ const Crew = () => {
                         Meet your crew
                     </h2>
                     <Swiper
-                        className='bg-red-950 '
+                        className=' '
                         spaceBetween={0}
                         modules={[Pagination]}
                         slidesPerView={1}
@@ -26,26 +64,27 @@ const Crew = () => {
                         onSlideChange={() => console.log('slide change')}
                         onSwiper={(swiper) => console.log(swiper)}
                     >
-                        <SwiperSlide className='  relative'>
-                            <div className='grid   max-h-screen  gap-20 grid-rows-2 h-grid-mobile' >
-                                <div className="border-white pt-8 border-b border-opacity-30 border-solid w-full self-end">
-                                    <img className="w-44 mx-auto" src="/images/crew/image-douglas-hurley.webp" alt="Douglas Hurley"
-                                    />
-                                </div>
-                                <div className="grid text-center self-start">
-                                    <p className="font-bellefair text-base uppercase text-white opacity-50 font-light mix-blend-normal">Commander</p>
-                                    <h3 className='py-2 text-white font-bellefair text-2xl uppercase '>Douglas Hurley</h3>
-                                    <p className="font-barlow text-white-text text-base leading-6">Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.</p>
-                                </div>
-                            </div>
+                        {
+                            crews.map((crew: Crew) =>
+                            (
+                                <SwiperSlide className='  relative' key={crew.name}>
+                                    <div className='grid   max-h-screen  gap-20 grid-rows-2 h-grid-mobile' >
+                                        <div className="border-white pt-8 border-b border-opacity-30 border-solid w-full self-end">
+                                            <img className="max-h-72 mx-auto "  src={crew.images.webp} alt={crew.name}
+                                            />
+                                        </div>
+                                        <div className="grid text-center self-start">
+                                            <p className="font-bellefair text-base uppercase text-white opacity-50 font-light mix-blend-normal">{crew.role}</p>
+                                            <h3 className='py-2 text-white font-bellefair text-2xl uppercase '>{crew.name}</h3>
+                                            <p className="font-barlow text-white-text text-base leading-6">{crew.bio}</p>
+                                        </div>
+                                    </div>
 
-                        </SwiperSlide>
-                        <SwiperSlide className='bg-blue-500 h-full'>
-                            <div className='grid place-items-center h-full'>
+                                </SwiperSlide>
+                            ))
 
-                                Slide 1
-                            </div>
-                        </SwiperSlide>
+                        }
+
 
 
                     </Swiper>
