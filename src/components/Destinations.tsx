@@ -48,7 +48,7 @@ const Destinations = () => {
 
   return (
     <>
-      <div
+      <section
         id="destination"
         className=" h-auto min-h-screen bg-destination-mobile bg-cover  px-8 py-6 font-barlow font-normal md:bg-destination-tablet md:px-16 lg:bg-destination-desktop grid"
       >
@@ -102,7 +102,7 @@ const Destinations = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

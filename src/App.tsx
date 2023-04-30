@@ -1,3 +1,4 @@
+import Crew from "./components/Crew"
 import Destinations from "./components/Destinations"
 import Home from "./components/Home"
 import Navbar from "./components/Navbar"
@@ -14,6 +15,7 @@ function App() {
       <main >
         <Home />
         <Destinations />
+        <Crew/>
       </main>
 
     </ SpaceProvider>

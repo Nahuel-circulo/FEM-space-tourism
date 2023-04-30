@@ -14,6 +14,9 @@ export default {
         "destination-mobile":"url('/images/destination/background-destination-mobile.jpg')",
         "destination-tablet":"url('/images/destination/background-destination-tablet.jpg')",
         "destination-desktop":"url('/images/destination/background-destination-desktop.jpg')",
+        "crew-mobile":"url('/images/crew/background-crew-mobile.jpg')",
+        "crew-tablet":"url('/images/crew/background-crew-tablet.jpg')",
+        "crew-desktop":"url('/images/crew/background-crew-desktop.jpg')",
       },
       colors:{
         "white-text":"#D0D6F9",
