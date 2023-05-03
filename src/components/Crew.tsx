@@ -56,7 +56,7 @@ const Crew = () => {
                         Meet your crew
                     </h2>
                     <Swiper
-                        className='bg-red-900 h-full w-full relative'
+                        className=' h-full w-full relative'
                         scrollbar={{ enabled: false }}
 
                         spaceBetween={50}

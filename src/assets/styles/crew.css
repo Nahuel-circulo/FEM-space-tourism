@@ -1,8 +1,8 @@
 .swiper-pagination {
 
-    top: calc(50% - 10px)!important;
+    top: calc(50% - 10px) !important;
     height: fit-content;
-    
+
 }
 
 
@@ -21,9 +21,23 @@
 @media screen and (min-width:768px) {
     .swiper-pagination {
 
-        top:  33% !important;
+        top: 33% !important;
         height: fit-content;
-        
+
     }
 }
 
+@media screen and (min-width:1024px) {
+    .swiper-pagination {
+        left: 0px;
+        top: 90% !important;
+        width: fit-content !important;
+
+    }
+
+    .swiper-pagination-bullet{
+        margin-right: 20px !important;
+        height: 15px !important;
+        width: 15px !important;
+    }
+}
