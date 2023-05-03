@@ -33,6 +33,10 @@ export default {
         "grid-tablet":"calc(100vh - 200px)",
         "grid-desktop":"calc(100vh - 124px)",
       },
+      maxHeight:{
+        "100":"600px",
+
+      },
       gridTemplateRows:{
         autoandrepeatfr: 'auto  minmax(0, 1fr)',
       }
