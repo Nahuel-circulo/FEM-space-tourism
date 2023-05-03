@@ -69,11 +69,10 @@ const Destinations = () => {
                   <button
                     onClick={() => setCurrentDestination(item)}
                     key={item.name}
-                    className={`${
-                      currentDestination?.name === item.name
+                    className={`${currentDestination?.name === item.name
                         ? " border-white text-white"
                         : "border-transparent text-gray-300"
-                    }  inline-flex h-10 items-center whitespace-nowrap   border-b-2     text-sm lg:text-lg  uppercase  focus:outline-none sm:text-base`}
+                      }  inline-flex h-10 items-center whitespace-nowrap   border-b-2     text-sm lg:text-lg  uppercase  focus:outline-none sm:text-base`}
                   >
                     {item.name}
                   </button>

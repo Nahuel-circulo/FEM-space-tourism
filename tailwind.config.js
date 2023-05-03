@@ -30,8 +30,11 @@ export default {
       },
       height:{
         "grid-mobile":"calc(100vh - 124px)",
-        "grid-tablet":"calc(100vh - 124px)",
+        "grid-tablet":"calc(100vh - 200px)",
         "grid-desktop":"calc(100vh - 124px)",
+      },
+      gridTemplateRows:{
+        autoandrepeatfr: 'auto  minmax(0, 1fr)',
       }
     },
   },
