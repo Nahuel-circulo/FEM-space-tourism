@@ -17,6 +17,9 @@ export default {
         "crew-mobile":"url('/images/crew/background-crew-mobile.jpg')",
         "crew-tablet":"url('/images/crew/background-crew-tablet.jpg')",
         "crew-desktop":"url('/images/crew/background-crew-desktop.jpg')",
+        "technology-mobile":"url('/images/technology/background-technology-mobile.jpg')",
+        "technology-tablet":"url('/images/technology/background-technology-tablet.jpg')",
+        "technology-desktop":"url('/images/technology/background-technology-desktop.jpg')",
       },
       colors:{
         "white-text":"#D0D6F9",
