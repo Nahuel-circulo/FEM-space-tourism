@@ -1,9 +1,15 @@
+import { useContext } from "react";
+import { SpaceContext } from "../context/SpaceContext";
 
 
 const Home = () => {
+
+    console.log(window.location);
+    const { setActiveSection, spaceState } = useContext(SpaceContext);
+
     return (
         <>
-            <section   id="home" className="bg-home-mobile md:bg-home-tablet lg:bg-home-desktop bg-cover  font-normal">
+            <section id="home" className="bg-home-mobile md:bg-home-tablet lg:bg-home-desktop bg-cover  font-normal">
                 <div className="mx-auto grid place-items-center lg:grid-cols-2 lg:grid-rows-3 min-h-screen w-full max-w-md md:max-w-2xl lg:max-w-7xl">
                     <div className="self-end mx-auto max-w-md lg:max-w-2xl  text-center  lg:self-center  lg:row-span-2 lg:row-start-2  font-barlow text-white-text px-4 w-full text-base md:text-lg">
                         <h3 className=" lg:text-3xl text-center ">SO, YOU WANT TO TRAVEL TO</h3>
@@ -12,14 +18,13 @@ const Home = () => {
                     </div>
                     <div className=" md:hover:bg-white md:hover:bg-opacity-10 lg:row-span-2 lg:row-start-2  rounded-full md:p-12 lg:-top-16  transition ease-in-out">
                         <a href="#destination">
-
-                        <button className=" uppercase font-bellefair font-normal text-black-text text-lg bg-white rounded-full p-9 md:p-14 lg:p-24 aspect-square">
-                            Explore
-                        </button>
+                            <button onClick={() => setActiveSection(spaceState.sections.destination.title)} className=" uppercase font-bellefair font-normal text-black-text text-lg bg-white rounded-full p-9 md:p-14 lg:p-24 aspect-square">
+                                Explore
+                            </button>
                         </a>
                     </div>
                 </div>
-            </section>
+            </section >
         </>
     );
 }
