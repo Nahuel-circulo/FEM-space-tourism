@@ -39,15 +39,15 @@ const Technology = () => {
     return (
         <section id="technology" className="py-8 min-h-screen bg-cover bg-center bg-technology-mobile md:bg-technology-tablet lg:bg-technology-desktop">
             <div className="grid py-8">
-                <h2 className="text-center py-4 text-xl lg:text-3xl uppercase text-white md:justify-self-start md:py-8 lg:col-start-1 lg:self-end">
+                <h2 className="text-center py-4 text-xl md:pl-8 lg:text-3xl uppercase text-white md:justify-self-start md:pt-12 md:pb-8 lg:col-start-1 lg:self-end">
                     <span className="pr-4 font-bold text-gray-500 ">03</span>
                     Space launch 101
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-8 pb-4">
+                <div className="grid grid-cols-1  gap-4 pt-8 pb-4">
 
                     <picture className="w-full ">
-                        <img className="hidden md:block aspect-video object-contain" src={activeTechnology?.images.portrait} />
-                        <img className="md:hidden" src={activeTechnology?.images.landscape} />
+                        <img className="hidden lg:block   object-contain" src={activeTechnology?.images.portrait} />
+                        <img className="lg:hidden w-full" src={activeTechnology?.images.landscape} />
                     </picture>
 
 
@@ -67,9 +67,9 @@ const Technology = () => {
                 <div className="grid  text-center lg:col-start-1 lg:row-start-1 lg:items-center px-8">
                     <div className="lg:text-start">
 
-                        <p className="font-barlow text-sm uppercase text-white-text font-light mix-blend-normal md:text-2xl">THE TERMINOLOGY…</p>
+                        <p className="font-barlow text-sm uppercase text-white-text font-light mix-blend-normal md:text-xl">THE TERMINOLOGY…</p>
                         <h3 className='py-2 text-white font-bellefair text-2xl lg:py-4 uppercase md:text-5xl '>{activeTechnology?.name}</h3>
-                        <p className=" font-barlow text-white-text text-sm leading-6 lg:text-lg max-w-lg md:mx-auto lg:mx-0">{activeTechnology?.description}</p>
+                        <p className=" font-barlow text-white-text text-sm leading-6 md:text-base lg:text-lg max-w-lg md:mx-auto lg:mx-0">{activeTechnology?.description}</p>
                     </div>
                 </div>
 
