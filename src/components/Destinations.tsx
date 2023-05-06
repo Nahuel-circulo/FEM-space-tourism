@@ -2,18 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { SpaceContext } from "../context/SpaceContext";
 import { IDestination } from "../context/SpaceProvider";
 
-enum DestinationType {
-  moon = "Moon",
-  mars = "Mars",
-  europa = "Europa",
-  titan = "Titan",
-}
-
 
 
 const Destinations = () => {
-
-
 
 
   const { spaceState, setActiveSection } = useContext(SpaceContext);
