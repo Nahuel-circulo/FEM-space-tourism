@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { SpaceContext } from "../context/SpaceContext";
 import { IDestination } from "../context/SpaceProvider";
 
@@ -24,11 +24,31 @@ const Destinations = () => {
   }
     , [dataLoaded]);
 
+    const destinationRef = useRef<HTMLElement>(null);
+
+
+    const handleScroll = () => {
+        //@ts-ignore
+        if (destinationRef.current?.getBoundingClientRect().top < 100 && destinationRef.current?.getBoundingClientRect().top > -100) {
+            setActiveSection("destination");
+
+        }
+    }
+
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        }
+    }, []);
 
   return (
     <>
       <section
         id="destination"
+        ref={destinationRef}
         className=" h-auto min-h-screen bg-destination-mobile bg-cover  px-8 py-6 font-barlow font-normal md:bg-destination-tablet md:px-16 lg:bg-destination-desktop grid"
       >
         <div className="mx-auto grid w-full max-w-md place-items-center lg:gap-10  pt-12 md:max-w-2xl lg:max-w-6xl lg:grid-cols-2 lg:auto-rows-auto  ">

@@ -4,7 +4,7 @@ import { Pagination } from "swiper";
 import 'swiper/css';
 import "swiper/css/pagination";
 import '../assets/styles/crew.css';
-import { useContext } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { SpaceContext } from '../context/SpaceContext';
 import { ICrew } from '../context/SpaceProvider';
 
@@ -17,11 +17,30 @@ const Crew = () => {
     const { spaceState, setActiveSection } = useContext(SpaceContext);
 
 
+    const crewRef = useRef<HTMLElement>(null);
 
+
+    const handleScroll = () => {
+
+        //@ts-ignore
+        if (crewRef.current?.getBoundingClientRect().top < 100 && crewRef.current?.getBoundingClientRect().top > -100) {
+            setActiveSection("crew");
+
+        }
+    }
+
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        }
+    }, []);
 
     return (
         <>
-            <section id="crew" className="font-barlow font-normal bg-crew-mobile md:bg-crew-tablet lg:bg-crew-desktop bg-cover bg-center ">
+            <section id="crew" ref={crewRef}  className="font-barlow font-normal bg-crew-mobile md:bg-crew-tablet lg:bg-crew-desktop bg-cover bg-center ">
                 <div className="mx-auto max-w-md md:max-w-2xl lg:max-w-6xl px-8 pt-16  min-h-screen  md:pt-0 grid md:items-end grid-rows-autoandrepeatfr">
                     <h2 className=" text-center md:text-left py-4 text-xl lg:text-3xl uppercase text-white md:justify-self-start md:mt-12 md:pt-12 lg:col-start-1 lg:self-end">
                         <span className="pr-4 font-bold text-gray-500 ">02</span>

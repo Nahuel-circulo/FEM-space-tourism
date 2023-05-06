@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { SpaceContext } from "../context/SpaceContext";
 import { ITechnology } from "../context/SpaceProvider";
 
@@ -8,9 +8,9 @@ import { ITechnology } from "../context/SpaceProvider";
 const Technology = () => {
 
 
-    const {spaceState,setActiveSection} = useContext(SpaceContext);
+    const { spaceState, setActiveSection } = useContext(SpaceContext);
 
-    const { dataLoaded,dataJson } = spaceState;
+    const { dataLoaded, dataJson } = spaceState;
 
     const [activeTechnology, setActiveTechnology] = useState<ITechnology | null>();
 
@@ -22,8 +22,29 @@ const Technology = () => {
 
     }, [dataLoaded]);
 
+    const technologyRef = useRef<HTMLElement>(null);
+
+
+    const handleScroll = () => {
+
+        //@ts-ignore
+        if (technologyRef.current?.getBoundingClientRect().top < 100 && technologyRef.current?.getBoundingClientRect().top > -100) {
+            setActiveSection("technology");
+
+        }
+    }
+
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        }
+    }, []);
+
     return (
-        <section id="technology" className="py-8 md:py-12 min-h-screen bg-cover bg-center bg-technology-mobile md:bg-technology-tablet lg:bg-technology-desktop">
+        <section id="technology" ref={technologyRef} className="py-8 md:py-12 min-h-screen bg-cover bg-center bg-technology-mobile md:bg-technology-tablet lg:bg-technology-desktop">
             <h2 className="text-center md:text-start lg:max-w-6xl mx-auto  text-xl md:pl-8 lg:text-3xl uppercase text-white  pt-12 pb-8  ">
                 <span className="pr-4 font-bold text-gray-500 ">03</span>
                 Space launch 101
