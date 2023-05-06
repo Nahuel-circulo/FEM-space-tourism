@@ -1,40 +1,26 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { SpaceContext } from "../context/SpaceContext";
+import { ITechnology } from "../context/SpaceProvider";
 
 
-
-interface Technology {
-    name: string;
-    images: {
-        portrait: string;
-        landscape: string;
-    };
-    description: string;
-}
 
 
 const Technology = () => {
 
-    const [activeTechnology, setActiveTechnology] = useState<Technology>();
-    const [technologies, setTechnologies] = useState<Technology[]>([]);
-    const getData = () => {
-        fetch("/data/data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-        })
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (myJson) {
-                setTechnologies(myJson.technology);
-                setActiveTechnology(myJson.technology[0])
-            });
-    };
+
+    const {spaceState,setActiveSection} = useContext(SpaceContext);
+
+    const { dataLoaded,dataJson } = spaceState;
+
+    const [activeTechnology, setActiveTechnology] = useState<ITechnology | null>();
+
+
+
 
     useEffect(() => {
-        getData();
-    }, []);
+        setActiveTechnology(dataJson.technology[0])
+
+    }, [dataLoaded]);
 
     return (
         <section id="technology" className="py-8 md:py-12 min-h-screen bg-cover bg-center bg-technology-mobile md:bg-technology-tablet lg:bg-technology-desktop">
@@ -55,9 +41,10 @@ const Technology = () => {
                 <div className="flex justify-center gap-4 py-8 lg:col-start-1 lg:row-start-1 lg:gap-8 lg:flex-col lg:items-end lg:px-12">
 
                     {
-                        technologies.map((technology, index) =>
+                        dataLoaded &&
+                        dataJson.technology.map((technology, index) =>
                         (
-                            <button key={index} className={`${activeTechnology?.name === technology.name ? "bg-white text-black" : "bg-transparent"} text-white mix-blend-normal text-sm md:text-lg font-bellefair uppercase border transition-colors duration-300 ease-in-out rounded-full w-12 h-12 lg:w-16 lg:h-16 bg-white aspect-square`} onClick={() => setActiveTechnology(technology)}>
+                            <button key={index} className={`${activeTechnology?.name === technology.name ? "bg-white text-black" : "bg-transparent text-white "} mix-blend-normal text-sm md:text-lg font-bellefair uppercase border transition-colors duration-300 ease-in-out rounded-full w-12 h-12 lg:w-16 lg:h-16  aspect-square`} onClick={() => setActiveTechnology(technology)}>
                                 {index + 1}</button>
                         ))
 

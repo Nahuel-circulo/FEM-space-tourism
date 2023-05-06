@@ -4,7 +4,7 @@ import { SpaceContext } from "../context/SpaceContext";
 
 const Home = () => {
 
-    console.log(window.location);
+ 
     const { setActiveSection, spaceState } = useContext(SpaceContext);
 
     return (

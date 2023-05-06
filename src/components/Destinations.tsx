@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { SpaceContext } from "../context/SpaceContext";
+import { IDestination } from "../context/SpaceProvider";
 
 enum DestinationType {
   moon = "Moon",
@@ -7,44 +9,30 @@ enum DestinationType {
   titan = "Titan",
 }
 
-//create interface of destinations
-interface IDestination {
-  id: number;
-  name: DestinationType;
-  images: Iimages;
-  description: string;
-  distance: string;
-  travel: string;
-}
 
-interface Iimages {
-  png: string;
-  webp: string;
-}
 
 const Destinations = () => {
-  const [destinations, setDestinations] = useState([]);
+
+
+
+
+  const { spaceState, setActiveSection } = useContext(SpaceContext);
+
+
+
+  const { dataJson, dataLoaded } = spaceState
+
+
   const [currentDestination, setCurrentDestination] =
     useState<IDestination | null>();
 
-  const getData = () => {
-    fetch("/data/data.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (myJson) {
-        setDestinations(myJson.destinations);
-        setCurrentDestination(myJson.destinations[0]);
-      });
-  };
   useEffect(() => {
-    getData();
-  }, []);
+    if (dataLoaded) {
+      setCurrentDestination(dataJson.destinations[0]);
+    }
+  }
+    , [dataLoaded]);
+
 
   return (
     <>
@@ -65,18 +53,21 @@ const Destinations = () => {
           <div className=" mx-auto w-full   self-end  px-4  text-center  font-barlow text-base  text-white-text md:text-lg lg:col-start-2 lg:row-start-2 lg:max-w-2xl lg:self-center  lg:text-start">
             {
               <div className="flex  justify-center gap-4 lg:gap-8 whitespace-nowrap uppercase lg:justify-start">
-                {destinations.map((item: IDestination) => (
-                  <button
-                    onClick={() => setCurrentDestination(item)}
-                    key={item.name}
-                    className={`${currentDestination?.name === item.name
+
+                {
+                  dataLoaded &&
+                  dataJson.destinations.map((item: IDestination) => (
+                    <button
+                      onClick={() => setCurrentDestination(item)}
+                      key={item.name}
+                      className={`${currentDestination?.name === item.name
                         ? " border-white text-white"
                         : "border-transparent text-gray-300"
-                      }  inline-flex h-10 items-center whitespace-nowrap   border-b-2     text-sm lg:text-lg  uppercase  focus:outline-none sm:text-base`}
-                  >
-                    {item.name}
-                  </button>
-                ))}
+                        }  inline-flex h-10 items-center whitespace-nowrap   border-b-2     text-sm lg:text-lg  uppercase  focus:outline-none sm:text-base`}
+                    >
+                      {item.name}
+                    </button>
+                  ))}
               </div>
             }
             <h1 className="my-4 font-bellefair text-6xl uppercase text-white md:text-8xl lg:text-9xl">
