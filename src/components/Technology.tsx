@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { SpaceContext } from "../context/SpaceContext";
 import { ITechnology } from "../context/SpaceProvider";
+import { useScroll } from "../utils/useScroll";
 
 
 
@@ -8,7 +9,7 @@ import { ITechnology } from "../context/SpaceProvider";
 const Technology = () => {
 
 
-    const { spaceState, setActiveSection } = useContext(SpaceContext);
+    const { spaceState } = useContext(SpaceContext);
 
     const { dataLoaded, dataJson } = spaceState;
 
@@ -25,23 +26,7 @@ const Technology = () => {
     const technologyRef = useRef<HTMLElement>(null);
 
 
-    const handleScroll = () => {
-
-        //@ts-ignore
-        if (technologyRef.current?.getBoundingClientRect().top < 100 && technologyRef.current?.getBoundingClientRect().top > -100) {
-            setActiveSection("technology");
-
-        }
-    }
-
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        }
-    }, []);
+    useScroll({ destination: 'technology', elementRef: technologyRef });
 
     return (
         <section id="technology" ref={technologyRef} className="py-8 md:py-12 min-h-screen bg-cover bg-center bg-technology-mobile md:bg-technology-tablet lg:bg-technology-desktop">

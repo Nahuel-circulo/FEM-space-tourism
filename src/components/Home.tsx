@@ -1,5 +1,6 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext,  useRef } from "react";
 import { SpaceContext } from "../context/SpaceContext";
+import { useScroll } from "../utils/useScroll";
 
 
 const Home = () => {
@@ -10,24 +11,7 @@ const Home = () => {
     const homeRef = useRef<HTMLElement>(null);
 
 
-    const handleScroll = () => {
-
-        //@ts-ignore
-        if (homeRef.current?.getBoundingClientRect().top < 100 && homeRef.current?.getBoundingClientRect().top > -100) {
-            setActiveSection("home");
-
-        }
-    }
-
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        }
-    }, []);
-
+    useScroll({ destination: 'home', elementRef: homeRef });
 
     return (
         <>

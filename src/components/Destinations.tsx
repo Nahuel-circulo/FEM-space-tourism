@@ -1,13 +1,14 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { SpaceContext } from "../context/SpaceContext";
 import { IDestination } from "../context/SpaceProvider";
+import { useScroll } from "../utils/useScroll";
 
 
 
 const Destinations = () => {
 
 
-  const { spaceState, setActiveSection } = useContext(SpaceContext);
+  const { spaceState } = useContext(SpaceContext);
 
 
 
@@ -24,25 +25,10 @@ const Destinations = () => {
   }
     , [dataLoaded]);
 
-    const destinationRef = useRef<HTMLElement>(null);
+  const destinationRef = useRef<HTMLElement>(null);
 
 
-    const handleScroll = () => {
-        //@ts-ignore
-        if (destinationRef.current?.getBoundingClientRect().top < 100 && destinationRef.current?.getBoundingClientRect().top > -100) {
-            setActiveSection("destination");
-
-        }
-    }
-
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        }
-    }, []);
+  useScroll({ destination: 'destination', elementRef: destinationRef })
 
   return (
     <>
