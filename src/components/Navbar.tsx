@@ -44,19 +44,22 @@ const Navbar = () => {
 
           <div className="md:flex md:items-center ">
             <nav aria-label="Site Nav" onClick={() => setisOpen(!isOpen)} className={clsx(
-              'fixed top-0 w-full h-screen mx-auto transition-all  left-full md:static md:h-auto md:block bg-mywhite md:px-12 lg:px-40 backdrop-blur-2xl',
-              isOpen && '!left-0'
+              'fixed top-0 w-2/3 md:w-full h-screen mx-auto transition-all  left-full md:static md:h-auto md:block bg-mywhite md:px-12  lg:px-32 xl:px-40 backdrop-blur-2xl',
+              isOpen && '!left-1/3'
             )}>
-              <ul className="flex flex-col items-center gap-6 text-base font-normal tracking-widest text-white md:flex-row lg:gap-12">
-                <button
-                  className="text-gray-600 transition md:hidden hover:text-gray-600/75"
-                  onClick={() => setisOpen(!isOpen)}
-                >
-                  <img src={closeIcon} alt="hamburger-icon" />
-                </button>
+              <ul className="flex flex-col items-center gap-12 pt-8 pl-8 text-base font-normal tracking-widest text-white md:pt-0 md:pl-0 md:flex-row lg:gap-12">
+
+                <div className="w-full pr-8 md:hidden text-end">
+                  <button
+                    className="text-gray-600 transition hover:text-gray-600/75"
+                    onClick={() => setisOpen(!isOpen)}
+                  >
+                    <img src={closeIcon} alt="hamburger-icon" />
+                  </button>
+                </div>
                 {
                   sections.map((section) => (
-                    <li key={section.title} className={`${spaceState.activeSection === section.title ? 'border-white' : 'border-transparent hover:border-white hover:border-opacity-60'} ` + "border-b-2    md:py-4 lg:py-6  transition-colors duration-300 transform   "}>
+                    <li key={section.title} className={`${spaceState.activeSection === section.title ? 'border-white' : 'border-transparent hover:border-white hover:border-opacity-60'} ` + " border-r-2 md:border-b-2 md:border-r-0 w-full md:w-auto    md:py-4 lg:py-6  transition-colors duration-300 transform   "}>
                       <a
                         className="py-4 uppercase transition "
                         href={`#${section.title}`}
