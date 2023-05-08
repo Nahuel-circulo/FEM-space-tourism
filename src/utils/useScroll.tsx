@@ -1,4 +1,4 @@
-import { useContext, useEffect,RefObject } from "react";
+import { useContext, useEffect, RefObject } from "react";
 import { SpaceContext } from "../context/SpaceContext";
 
 
@@ -11,19 +11,14 @@ export const useScroll = ({ elementRef, destination }: Props) => {
 
     const { setActiveSection } = useContext(SpaceContext);
 
-
     const handleScroll = () => {
-        
-        //@ts-ignore
-        if (elementRef.current?.getBoundingClientRect().top < 100 && elementRef.current?.getBoundingClientRect().top > -100) {
+        if (elementRef.current && elementRef.current?.getBoundingClientRect().top < 100 && elementRef.current?.getBoundingClientRect().top > -100) {
             setActiveSection(destination);
-
         }
     }
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
-
         return () => {
             window.removeEventListener("scroll", handleScroll);
         }
